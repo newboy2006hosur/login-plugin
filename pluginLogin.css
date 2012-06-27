@@ -1,0 +1,63 @@
+#login-box{
+	background: GhostWhite;
+	margin: 5px;
+	padding: 10px;
+	box-shadow: 4px 4px 4px #888;
+	font-family: 'Segoe UI','Tahoma','Trebuchet MS', 'Verdana', 'Arial';
+	font-size: 16px;
+	width: 100%;
+}
+
+#login-box #login-error .triangle{
+	border-bottom: 6px solid #2F2F2F;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    float: left;
+    position: absolute;
+    top: -5px;
+}
+
+#login-box label{
+	margin: 10px;
+}
+
+#login-box span{
+	color: lightgrey;
+	padding-left: 5px;
+	font-size: 14px;
+}
+
+#login-box input{
+	height: 25px;
+	margin: 0px 5px;
+}
+
+.normal input{
+	width: 95%;
+}
+
+#login-box button{
+    font-family: 'Segoe UI','Tahoma','Trebuchet MS','Verdana','Arial';
+    font-size: 12px;
+    height: 25px;
+    margin: 0px 5px;
+    width: 75px;
+	color: white;
+	border-radius: 3px;
+}
+
+#login-box #submit{
+	background: #00AEDB;
+	border-right: 2px solid #009ac2;
+	border-bottom: 2px solid #009ac2;
+	border-left: 2px solid #00c2f5;
+	border-top: 2px solid #00c2f5;
+}
+
+#login-box #cancel{
+	background: #cd432d;
+	border-right: 2px solid #b83c28;
+	border-bottom: 2px solid #b83c28;
+	border-left: 2px solid #d5533f;
+	border-top: 2px solid #d5533f;
+}
