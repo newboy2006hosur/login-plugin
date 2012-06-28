@@ -1,0 +1,38 @@
+LOGIN PLUGIN
+
+"jquery.loginPlugin.js" is a small javascript plugin that allows you to add login box (with 4 different styles) to your web application in single line of code.
+
+Every web application needs login functionality to provide access to authentic users. Creating a login box and adding validation consumes lot of time, now just focus on your app by importing this plugin.
+
+I. TO CREATE A LOGIN BOX
+Usage: $('selector').createLogin(type[String], {options}[Object], selector_for_username_field(String), selector_for_password_field(String));
+Description: Creates a login box in the specified DOM element with specified attributes.
+Arguments: type - Type of login box to be created, can be either "one-line" or "normal". By default it is normal.
+		   options - Various options to change the appearance and characteristics of login box. 
+					method : null,
+					action : null,
+					email : false,
+					width : "auto",
+					height : "auto",
+					background : null,
+					title : "Login",
+					cancel : false,
+					label : true
+			selector_for_username_field - "name" attribute of username input field. By default the name attribute is "username".
+			selector_for_password_field - "name" attribute of password input field. By default the name attribute is "password".
+
+II. ON SUBMIT VALIDATION
+Usage: $('selector').submitLogin([callback]);
+Description: Performs client validation on the values entered in the input fields and processes the form based on the callback/action attributes specified in createLogin function.
+
+III. TO DISPLAY A CUSTOM ERROR MESSAGE
+Usage: $('selector').displayCustomError(errorMessage[String]);
+Description: After performing your server side validations, the error messages can be displayed in this space by passing just the error message.
+
+IV: DESTROY THE LOGIN OBJECT
+Usage: $('selector').closeLogin();
+Description: Call this function once you redirect to a different page to unbind/destroy objects created in login page.
+
+AUTHORS
+* Manjunath Singh: newboy2006hosur@yahoo.co.in;
+* Kiran Raj Samarthyam: srkiranraj@gmail.com;

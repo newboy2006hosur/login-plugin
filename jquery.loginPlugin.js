@@ -124,7 +124,7 @@
 					break;
 			}
 			
-			if(currProp.method == null || currProp.action == null)
+			if(currProp.method != null || currProp.action != null)
 			{
 				$(form).find('button[type=submit]').bind('click',function(e){
 					e.preventDefault();
@@ -140,7 +140,7 @@
 			if(currProp.cancel)
 			{
 				$(form).find('button[type=cancel]').bind('click',function(e){
-					if(currProp.method == null || currProp.action == null)
+					if(currProp.method != null || currProp.action != null)
 					{
 						e.preventDefault();
 					}
@@ -169,10 +169,9 @@
 		
 		submitLogin : function(callback){
 			var self = this;
-			var errorShown = false;
 			$(this).find('#login-box').find('button[type=submit]').unbind('click');
 			$(this).find('#login-box').find('button[type=submit]').bind('click',function(e){
-				e.preventDefault();
+				var errorShown = false;
 				$(self).find('#login-box').find('#login-error').remove();
 				if($(self).find('#'+uid).val() == '' && !errorShown)
 				{
@@ -196,22 +195,29 @@
 				{
 					displayError(self, pwd, "Cannot be empty!");
 				}
-				
+				if(!errorShown)
+				{
+					if(callback !=null) callback();
+				}
+				else
+				{
+					e.preventDefault();
+				}
+				if((currProp.method == null || currProp.action == null)) e.preventDefault();
 			});
-			if(callback !=null) callback();
 		},
 		
 		displayCustomError : function(errMsg){
 			$(this).find('#login-box').append('<div id="customError" style="background:#f5f5f5;padding:3px;margin:20px;box-shadow:0 3px 4px #888;"><div style="color:red;font-size:12px;font-family:Arial;padding:3px;text-align:center;">'+errMsg+'</div></div>')
-		}
+		},
 		
 		closeLogin : function(){
 			$(this).children().remove();
 			$(this).find('#login-box').find('button[type=submit]').unbind('click');
-			$(form).find('#'+uid.unbind('keyup');
-			$(form).find('#'+pwd).unbind('keyup');
-			$(form).find('button[type=cancel]').unbind('click');
-			$(form).find('button[type=submit]').unbind('click');
+			$(this).find('#'+uid).unbind('keyup');
+			$(this).find('#'+pwd).unbind('keyup');
+			$(this).find('button[type=cancel]').unbind('click');
+			$(this).find('button[type=submit]').unbind('click');
 			$(this).find('#login-box span.username-label').unbind('click');
 			$(this).find('#login-box span.pwd-label').unbind('click');
 		}
