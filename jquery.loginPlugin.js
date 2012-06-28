@@ -1,3 +1,12 @@
+/************************************************************************/
+/* Jquery login plugin - A simple plugin to create login form with few  */
+/* lines of code.														*/
+/*																		*/
+/* Authors : Kiran Raj Samarthyam - srkiranraj@gmail.com,				*/
+/*			 Manjunath Singh - newboy2006hosur@yahoo.co.in				*/
+/*																		*/
+/************************************************************************/
+
 (function($){
 	loginDefaults = {
 		method : null,
@@ -44,79 +53,80 @@
 			else
 				currProp = loginDefaults;
 			$(this).append('<form id="login-box" class="'+type+'"></form>');
+			var form = $(this).find('#login-box');
 			if(currProp.background !=null)
-				$(this).find('#login-box').css('background',currProp.background);
-			$(this).find('#login-box').css('width',currProp.width);
-			$(this).find('#login-box').css('height',currProp.height);
+				$(form).css('background',currProp.background);
+			$(form).css('width',currProp.width);
+			$(form).css('height',currProp.height);
 			if(currProp.method != null)
-				$(this).find('#login-box').attr('method',currProp.method);
+				$(form).attr('method',currProp.method);
 			if(currProp.action != null)
-				$(this).find('#login-box').attr('action',currProp.action);
+				$(form).attr('action',currProp.action);
 			switch(type){
 				case 'one-line':
 					if(currProp.label)
 					{
 						
-						$(this).find('#login-box').append('<label for="'+userid+'">Username</label>');
+						$(form).append('<label for="'+userid+'">Username</label>');
 						
-						$(this).find('#login-box').append('<input type="text" class="'+userid+'" id="'+userid+'" name="'+userid+'">');
+						$(form).append('<input type="text" class="'+userid+'" id="'+userid+'" name="'+userid+'">');
 						
 					}
 					else
 					{
-						$(this).find('#login-box').append('<input type="text" class="'+userid+'" id="'+userid+'" name="'+userid+'">');
-						$(this).find('#login-box').append('<span style="position:absolute;" class="username-label">Username</span>');
+						$(form).append('<input type="text" class="'+userid+'" id="'+userid+'" name="'+userid+'">');
+						$(form).append('<span style="position:absolute;" class="username-label">Username</span>');
 						$(this).find('#login-box .username-label').css('left',$(this).find('#'+userid).offset().left);
 					}
 					if(currProp.label)
 					{
-						$(this).find('#login-box').append('<label for="'+password+'">Password</label>');
-						$(this).find('#login-box').append('<input type="password" class="'+password+'" id="'+password+'" name="'+password+'">');
+						$(form).append('<label for="'+password+'">Password</label>');
+						$(form).append('<input type="password" class="'+password+'" id="'+password+'" name="'+password+'">');
 					}
 					else
 					{
-						$(this).find('#login-box').append('<input type="password" class="'+password+'" id="'+password+'" name="'+password+'">');
-						$(this).find('#login-box').append('<span style="position:absolute;" class="pwd-label">Password</span>');
+						$(form).append('<input type="password" class="'+password+'" id="'+password+'" name="'+password+'">');
+						$(form).append('<span style="position:absolute;" class="pwd-label">Password</span>');
 						$(this).find('#login-box .pwd-label').css('left',$(this).find('#'+password).offset().left);
 					}
 					
-					$(this).find('#login-box').append('<button type="submit" id="submit">Login</button>');
+					$(form).append('<button type="submit" id="submit">Login</button>');
 					if(currProp.cancel)
-						$(this).find('#login-box').append('<button type="cancel" id="cancel">Cancel</button>');
+						$(form).append('<button type="cancel" id="cancel">Cancel</button>');
 					break;
 				case 'normal':
 					if(currProp.title != 'none')
-						$(this).find('#login-box').append('<div class="loginTitle">'+currProp.title+'</div><br>');
+						$(form).append('<div class="loginTitle">'+currProp.title+'</div><br>');
 					if(currProp.label)
 					{
-						$(this).find('#login-box').append('<div><div style="float:left;width:40%;"><label for="'+userid+'">Username</label></div><div style="float:right;width:56%"><input type="text" class="'+userid+'" id="'+userid+'" name="'+userid+'"></div><div style="clear:both;"></div></div><br>');						
+						$(form).append('<div><div style="float:left;width:40%;"><label for="'+userid+'">Username</label></div><div style="float:right;width:56%"><input type="text" class="'+userid+'" id="'+userid+'" name="'+userid+'"></div><div style="clear:both;"></div></div><br>');						
 					}
 					else
 					{
-						$(this).find('#login-box').append('<input type="text" class="'+userid+'" id="'+userid+'" name="'+userid+'">');
-						$(this).find('#login-box').append('<span style="position:absolute;" class="username-label">Username</span><br><br>');
+						$(form).append('<input type="text" class="'+userid+'" id="'+userid+'" name="'+userid+'">');
+						$(form).append('<span style="position:absolute;" class="username-label">Username</span><br><br>');
 						$(this).find('#login-box .username-label').css('left',$(this).find('#'+userid).offset().left);
 					}
 					if(currProp.label)
 					{
-						$(this).find('#login-box').append('<div><div style="float:left;width:40%;"><label for="'+password+'">Password</label></div><div style="float:right;width:56%"><input type="password" class="'+password+'" id="'+password+'" name="'+password+'"></div><div style="clear:both;"></div></div><br>');
+						$(form).append('<div><div style="float:left;width:40%;"><label for="'+password+'">Password</label></div><div style="float:right;width:56%"><input type="password" class="'+password+'" id="'+password+'" name="'+password+'"></div><div style="clear:both;"></div></div><br>');
 					}
 					else
 					{
-						$(this).find('#login-box').append('<input type="password" class="'+password+'" id="'+password+'" name="'+password+'">');
-						$(this).find('#login-box').append('<span style="position:absolute;" class="pwd-label">Password</span><br><br>');
+						$(form).append('<input type="password" class="'+password+'" id="'+password+'" name="'+password+'">');
+						$(form).append('<span style="position:absolute;" class="pwd-label">Password</span><br><br>');
 						$(this).find('#login-box .pwd-label').css('left',$(this).find('#'+password).offset().left);
 					}
 					
-					$(this).find('#login-box').append('<button type="submit" id="submit">Login</button>');
+					$(form).append('<button type="submit" id="submit">Login</button>');
 					if(currProp.cancel)
-						$(this).find('#login-box').append('<button type="cancel" id="cancel">Cancel</button>');
+						$(form).append('<button type="cancel" id="cancel">Cancel</button>');
 					break;
 			}
 			
 			if(currProp.method == null || currProp.action == null)
 			{
-				$(this).find('#login-box').find('button[type=submit]').bind('click',function(e){
+				$(form).find('button[type=submit]').bind('click',function(e){
 					e.preventDefault();
 				});
 				$(this).find('#login-box span.username-label').bind('click',function(){
@@ -129,27 +139,25 @@
 			
 			if(currProp.cancel)
 			{
-				if(currProp.method == null || currProp.action == null)
-				{
-					$(this).find('#login-box').find('button[type=cancel]').bind('click',function(e){
+				$(form).find('button[type=cancel]').bind('click',function(e){
+					if(currProp.method == null || currProp.action == null)
+					{
 						e.preventDefault();
-					});
-				}
-				$(this).find('#login-box').find('button[type=cancel]').bind('click',function(e){
+					}
 					$(self).find('input').val('');
 				});
 			}
 			
 			if(!currProp.label)
 			{
-				$(this).find('#login-box').find('#'+userid).bind('keyup',function(){
+				$(form).find('#'+userid).bind('keyup',function(){
 					if($(this).val().length > 0)
 						$(self).find('#login-box .username-label').hide();
 					else
 						$(self).find('#login-box .username-label').show().css('display','inline');
 				});
 				
-				$(this).find('#login-box').find('#'+password).bind('keyup',function(){
+				$(form).find('#'+password).bind('keyup',function(){
 					if($(this).val().length > 0)
 						$(self).find('#login-box .pwd-label').hide();
 					else
@@ -195,6 +203,17 @@
 		
 		displayCustomError : function(errMsg){
 			$(this).find('#login-box').append('<div id="customError" style="background:#f5f5f5;padding:3px;margin:20px;box-shadow:0 3px 4px #888;"><div style="color:red;font-size:12px;font-family:Arial;padding:3px;text-align:center;">'+errMsg+'</div></div>')
+		}
+		
+		closeLogin : function(){
+			$(this).children().remove();
+			$(this).find('#login-box').find('button[type=submit]').unbind('click');
+			$(form).find('#'+uid.unbind('keyup');
+			$(form).find('#'+pwd).unbind('keyup');
+			$(form).find('button[type=cancel]').unbind('click');
+			$(form).find('button[type=submit]').unbind('click');
+			$(this).find('#login-box span.username-label').unbind('click');
+			$(this).find('#login-box span.pwd-label').unbind('click');
 		}
 	}); 
 })(jQuery);
