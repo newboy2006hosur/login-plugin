@@ -31,7 +31,7 @@ Description: After performing your server side validations, the error messages c
 
 IV: DESTROY THE LOGIN OBJECT
 Usage: $('selector').closeLogin();
-Description: Call this function once you redirect to a different page to unbind/destroy objects created in login page.
+Description: Call this function once you redirect to a different page to remove the login form.
 
 AUTHORS
 * Manjunath Singh: newboy2006hosur@yahoo.co.in;
