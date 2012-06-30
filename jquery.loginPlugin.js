@@ -198,12 +198,21 @@
 				if(!errorShown)
 				{
 					if(callback !=null) callback();
+					
+					$(self).find('#login-box').find('button[type=submit]').unbind('click');
+					$(self).find('#'+uid).unbind('keyup');
+					$(self).find('#'+pwd).unbind('keyup');
+					$(self).find('button[type=cancel]').unbind('click');
+					$(self).find('button[type=submit]').unbind('click');
+					$(self).find('#login-box span.username-label').unbind('click');
+					$(self).find('#login-box span.pwd-label').unbind('click');
 				}
 				else
 				{
 					e.preventDefault();
 				}
 				if((currProp.method == null || currProp.action == null)) e.preventDefault();
+				
 			});
 		},
 		
@@ -213,13 +222,6 @@
 		
 		closeLogin : function(){
 			$(this).children().remove();
-			$(this).find('#login-box').find('button[type=submit]').unbind('click');
-			$(this).find('#'+uid).unbind('keyup');
-			$(this).find('#'+pwd).unbind('keyup');
-			$(this).find('button[type=cancel]').unbind('click');
-			$(this).find('button[type=submit]').unbind('click');
-			$(this).find('#login-box span.username-label').unbind('click');
-			$(this).find('#login-box span.pwd-label').unbind('click');
 		}
 	}); 
 })(jQuery);
